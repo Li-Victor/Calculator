@@ -20,7 +20,7 @@ function updateCurrentNumber(number) {
 }
 
 function deleteOneNumber() {
-    if(currentNumber.length <= 1) currentNumber = '0';
+    if(currentNumber.length <= 1 || currentNumber === 'Error') currentNumber = '0';
     else currentNumber = currentNumber.substring(0, currentNumber.length - 1);
 }
 
@@ -35,23 +35,28 @@ function clearEntry() {
 }
 
 function toggleSign() {
+    if(currentNumber.length === 8) {
+        currentNumber = 'Error';
+        return;
+    }
     if(currentNumber === '0' || currentNumber === 'Error') return;
     if(currentNumber.includes('-')) currentNumber = currentNumber.substr(1);
     else currentNumber = '-' + currentNumber;
 
-    fixCurrentNumber();
 }
 
 //can change operators if made a mistake
 function updateOperator(operatorValue) {
 
-    if(currentNumber === 'Error') return;
-    fixCurrentNumber();
-
-    if(!operator) {
-        previousNumber = Number(currentNumber);
-        currentNumber = '0';
+    if(operator) {
+        calculate();
     }
+    if(currentNumber === 'Error') {
+        operator = null;
+        return;
+    }
+    previousNumber = Number(currentNumber);
+    currentNumber = '0';
     operator = operatorValue;
 }
 
@@ -128,7 +133,5 @@ function fixCurrentNumber() {
     } else {
         currentNumber = stringifyCurrentNumber;
     }
-
-
 
 }

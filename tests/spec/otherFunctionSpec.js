@@ -139,6 +139,11 @@ describe('deleteOneNumber function', function () {
         currentNumber = '-';
         expectDeleteOneNumber('0');
     });
+
+    it('Error', function () {
+        currentNumber = 'Error';
+        expectDeleteOneNumber('0');
+    })
 });
 
 describe('clearAll function', function () {
@@ -292,14 +297,15 @@ describe('updateOperator function', function () {
         expect(operator).toBe(null);
     });
 
-    it('set operator twice, new operator should the one set', function () {
+    it('chaining operations', function () {
         currentNumber = 10;
         updateOperator('+');
-        updateOperator('/');
+        currentNumber = 20;
+        updateOperator('*');
 
         expect(currentNumber).toBe('0');
-        expect(previousNumber).toBe(10);
-        expect(operator).toBe('/');
+        expect(previousNumber).toBe(30);
+        expect(operator).toBe('*');
     });
 
     it('set operator with negative decimal number', function () {
