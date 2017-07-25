@@ -6,6 +6,10 @@ var operator = null;
 //number parameter is a string coming from button value
 function updateCurrentNumber(number) {
     if(currentNumber === 'Error') currentNumber = '0';
+    if(currentNumber.length === 8) {
+        currentNumber = 'Error';
+        return;
+    }
 
     if(number === '.' && currentNumber.includes('.')) return;
 
@@ -13,7 +17,6 @@ function updateCurrentNumber(number) {
     else if(currentNumber === '0') currentNumber = number;
     else currentNumber = currentNumber + number; //concat currentNumber and number
 
-    fixCurrentNumber();
 }
 
 function deleteOneNumber() {
