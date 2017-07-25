@@ -92,6 +92,14 @@ function calculate() {
 }
 
 //currentNumber should be Error when it is NaN, Infinity, or its length is greater than 8
+
+//number cannot be represented as more than 0 and less than 0.000001
+//number cannot be represented as less than 0 and more than -0.000001
+
+//highest positive whole number represented can be a length of 8 even with decimals
+//lowest negative whole number represented can be a length of 7 even with decimals
+
+//return a string of length 8 or less
 function fixCurrentNumber() {
 
     var stringifyCurrentNumber = currentNumber.toString();
@@ -104,22 +112,16 @@ function fixCurrentNumber() {
     if(stringifyCurrentNumber.length > 8) {
 
         //working with decimal numbers sometimes give floating point results
+        //length is greater than 9 and has decimal number
         if(stringifyCurrentNumber.includes('.')) {
-            currentNumber = Number(stringifyCurrentNumber.substr(0, 8)).toString();
 
-
-            //difference in lengths
-            if(stringifyCurrentNumber.length - currentNumber.length === 1) {
+            if(Number(stringifyCurrentNumber).toPrecision(7).includes('e')) {
                 currentNumber = 'Error';
                 return;
             }
+            //have to use a second Number() because sometimes there can be a -0 or a decimal point at the end such as 9.
+            currentNumber = Number(Number(stringifyCurrentNumber).toPrecision(7).substr(0, 8)).toString();
 
-
-            //still greater than 8
-            // if(currentNumber.length === 8 ) {
-            //     currentNumber = 'Error';
-            //     return;
-            // }
 
         } else {
             currentNumber = 'Error';
