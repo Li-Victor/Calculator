@@ -9,9 +9,9 @@ function updateCurrentNumber(number) {
 
     if(number === '.' && currentNumber.includes('.')) return;
 
-    if(number === '.' && currentNumber === '0') currentNumber + number;
+    if(number === '.' && currentNumber === '0') currentNumber = currentNumber + number;
     else if(currentNumber === '0') currentNumber = number;
-    else currentNumber + number; //concat currentNumber and number
+    else currentNumber = currentNumber + number; //concat currentNumber and number
 
     fixCurrentNumber();
 }
@@ -32,6 +32,7 @@ function clearEntry() {
 }
 
 function toggleSign() {
+    if(currentNumber === '0') return;
     if(currentNumber.includes('-')) currentNumber = currentNumber.substr(1);
     else currentNumber = '-' + currentNumber;
 }
@@ -91,6 +92,8 @@ function calculate() {
 
 }
 
+//remove decimal point at the end
+
 //currentNumber should be Error when it is NaN, Infinity, or its length is greater than 8
 
 //number cannot be represented as more than 0 and less than 0.000001
@@ -101,6 +104,11 @@ function calculate() {
 
 //return a string of length 8 or less
 function fixCurrentNumber() {
+
+    if(currentNumber === '-') {
+        currentNumber = 0;
+        return;
+    }
 
     var stringifyCurrentNumber = currentNumber.toString();
 
