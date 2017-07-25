@@ -32,13 +32,19 @@ function clearEntry() {
 }
 
 function toggleSign() {
-    if(currentNumber === '0') return;
+    if(currentNumber === '0' || currentNumber === 'Error') return;
     if(currentNumber.includes('-')) currentNumber = currentNumber.substr(1);
     else currentNumber = '-' + currentNumber;
+
+    fixCurrentNumber();
 }
 
 //can change operators if made a mistake
 function updateOperator(operatorValue) {
+
+    if(currentNumber === 'Error') return;
+    fixCurrentNumber();
+
     if(!operator) {
         previousNumber = Number(currentNumber);
         currentNumber = '0';
@@ -49,36 +55,19 @@ function updateOperator(operatorValue) {
 function calculate() {
     if(operator) {
 
-        if(previousNumber) {
+        if(previousNumber || previousNumber === 0) {
             switch (operator) {
                 case '+':
-                    currentNumber = (Number(currentNumber) + previousNumber);
+                    currentNumber = (previousNumber + Number(currentNumber));
                     break;
                 case '-':
-                    currentNumber = (Number(currentNumber) - previousNumber);
+                    currentNumber = (previousNumber - Number(currentNumber));
                     break;
                 case '*':
-                    currentNumber = (Number(currentNumber) * previousNumber);
+                    currentNumber = (previousNumber * Number(currentNumber));
                     break;
                 case '/':
-                    currentNumber = (Number(currentNumber) / previousNumber);
-                    break;
-                default:
-                    break;
-            }
-        } else { //just has currentNumber and operator. No previousNumber. Does operation by itself
-            switch (operator) {
-                case '+':
-                    currentNumber = (Number(currentNumber) + Number(currentNumber));
-                    break;
-                case '-':
-                    currentNumber = (Number(currentNumber) - Number(currentNumber));
-                    break;
-                case '*':
-                    currentNumber = (Number(currentNumber) * Number(currentNumber));
-                    break;
-                case '/':
-                    currentNumber = (Number(currentNumber) / Number(currentNumber));
+                    currentNumber = (previousNumber / Number(currentNumber));
                     break;
                 default:
                     break;
@@ -91,8 +80,6 @@ function calculate() {
     fixCurrentNumber();
 
 }
-
-//remove decimal point at the end
 
 //currentNumber should be Error when it is NaN, Infinity, or its length is greater than 8
 
