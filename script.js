@@ -94,7 +94,7 @@ function calculate() {
 //currentNumber should be Error when it is NaN, Infinity, or its length is greater than 8
 
 //number cannot be represented as more than 0 and less than 0.000001
-//number cannot be represented as less than 0 and more than -0.000001
+//number cannot be represented as less than 0 and less than -0.000001 with the negative sign
 
 //highest positive whole number represented can be a length of 8 even with decimals
 //lowest negative whole number represented can be a length of 7 even with decimals
