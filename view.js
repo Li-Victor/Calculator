@@ -1,3 +1,5 @@
+'use strict';
+
 var buttonNumber = document.querySelectorAll('.button__NUMBER');
 buttonNumber.forEach(function (button) {
     button.addEventListener('click', function () {

@@ -1,10 +1,20 @@
+'use strict';
+
 var currentNumber = '0';
 var previousNumber = null;
 var operator = null;
 
+var finishCalc = false;
+
 //updates current number with every pressed number button
 //number parameter is a string coming from button value
 function updateCurrentNumber(number) {
+
+    if(finishCalc) {
+        currentNumber = '0';
+        finishCalc = true;
+    }
+
     if(currentNumber === 'Error') currentNumber = '0';
     if(currentNumber.length === 8) {
         currentNumber = 'Error';
@@ -86,6 +96,7 @@ function calculate() {
     }
 
     fixCurrentNumber();
+    finishCalc = true;
 
 }
 

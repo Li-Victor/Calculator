@@ -4,49 +4,56 @@
         <meta charset="utf-8">
         <title>Calculator</title>
         <link rel="stylesheet" href="./normalize.css">
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
 
         <div class="container">
-            <div class="display">
-                <div class="display__operations"></div>
-                <div class="display__currentNumber">0</div>
+
+            <div class="container__inner">
+
+                <div class="display">
+                    <div class="display__operations"></div>
+                    <div class="display__currentNumber">0</div>
+                </div>
+
+                <div class="row">
+                    <button class="button__CE">CE</button>
+                    <button class="button__C">C</button>
+                    <button class="button__BACK">⌫</button>
+                    <button class="button__OPERATION" value="/">÷</button>
+                </div>
+
+                <div class="row">
+                    <button class="button__NUMBER" value="7">7</button>
+                    <button class="button__NUMBER" value="8">8</button>
+                    <button class="button__NUMBER" value="9">9</button>
+                    <button class="button__OPERATION" value="*">×</button>
+                </div>
+
+                <div class="row">
+                    <button class="button__NUMBER" value="4">4</button>
+                    <button class="button__NUMBER" value="5">5</button>
+                    <button class="button__NUMBER" value="6">6</button>
+                    <button class="button__OPERATION" value="-">-</button>
+                </div>
+
+                <div class="row">
+                    <button class="button__NUMBER" value="1">1</button>
+                    <button class="button__NUMBER" value="2">2</button>
+                    <button class="button__NUMBER" value="3">3</button>
+                    <button class="button__OPERATION" value="+">+</button>
+                </div>
+
+                <div class="row">
+                    <button class="button__TOGGLE">±</button>
+                    <button class="button__NUMBER" value="0">0</button>
+                    <button class="button__NUMBER" value=".">.</button>
+                    <button class="button__CALC">=</button>
+                </div>
+
             </div>
 
-            <div class="row">
-                <button class="button__CE">CE</button>
-                <button class="button__C">C</button>
-                <button class="button__BACK"><==</button>
-                <button class="button__OPERATION" value="/">/</button>
-            </div>
-
-            <div class="row">
-                <button class="button__NUMBER" value="7">7</button>
-                <button class="button__NUMBER" value="8">8</button>
-                <button class="button__NUMBER" value="9">9</button>
-                <button class="button__OPERATION" value="*">*</button>
-            </div>
-
-            <div class="row">
-                <button class="button__NUMBER" value="4">4</button>
-                <button class="button__NUMBER" value="5">5</button>
-                <button class="button__NUMBER" value="6">6</button>
-                <button class="button__OPERATION" value="-">-</button>
-            </div>
-
-            <div class="row">
-                <button class="button__NUMBER" value="1">1</button>
-                <button class="button__NUMBER" value="2">2</button>
-                <button class="button__NUMBER" value="3">3</button>
-                <button class="button__OPERATION" value="+">+</button>
-            </div>
-
-            <div class="row">
-                <button class="button__TOGGLE">+/-</button>
-                <button class="button__NUMBER" value="0">0</button>
-                <button class="button__NUMBER" value=".">.</button>
-                <button class="button__CALC">=</button>
-            </div>
         </div>
 
         <script src="./model.js" charset="utf-8"></script>

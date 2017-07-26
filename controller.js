@@ -1,3 +1,5 @@
+'use strict';
+
 function controlNumberButton(number) {
     updateCurrentNumber(number);
     displayCurrentNumber();
