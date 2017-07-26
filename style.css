@@ -1,0 +1,64 @@
+*:focus {
+    outline: 0;
+    outline: none;
+}
+
+body {
+    background: #81d4fa;
+    background: -webkit-linear-gradient(to left, #81d4fa, #aed581);
+    background: linear-gradient(to left, #81d4fa, #aed581);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.container {
+    margin: 0 auto;
+    height: auto;
+    display: block;
+    border: 3px solid rgba(0, 0, 0, 1);
+    width: 300px;
+    margin-top: 20vh;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 5px 5px 50px #26494a;
+    overflow: hidden;
+}
+
+.container__inner {
+    padding: 10px 22.5px 20px 22.5px;
+    background-color: #b0bec5;
+}
+
+.button__NUMBER, .button__CE,
+.button__C, .button__BACK,
+.button__OPERATION, .button__TOGGLE,
+.button__CALC {
+    border-radius: 50%;
+    margin: 5px 5px;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px #ab3c3c;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.display {
+    background-color: #78909c;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.display__currentNumber {
+    text-align: right;
+    padding-right: 10px;
+    font-size: 40px;
+}
+
+.display__operations {
+    text-align: right;
+    font-size: 16px;
+    padding-right: 10px;
+    height: 20px;
+}
